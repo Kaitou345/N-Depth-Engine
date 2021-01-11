@@ -1,0 +1,3 @@
+[submodule "N-Depth-Engine/vendor/spdlog"]
+	path = N-Depth-Engine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
