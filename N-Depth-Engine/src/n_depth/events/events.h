@@ -2,6 +2,8 @@
 
 #include "n_depth/core.h"
 #include <string>
+#include <ostream>
+#include "spdlog/fmt/ostr.h"
 
 namespace ND
 {
@@ -47,4 +49,9 @@ namespace ND
 		bool m_Handled = false;
 	};
 
+	std::ostream& operator<<(std::ostream& stream, const Event& e)
+	{
+		stream << e.To_String();
+		return stream;
+	}
 };
