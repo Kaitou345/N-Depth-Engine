@@ -1,16 +1,17 @@
 #pragma once
-#ifdef ND_PLATFORM_WINDOWS
+#include "events/key_events.h"
 
-extern nd::application* nd::create_application();
+#ifdef ND_PLATFORM_WINDOWS
+extern ND::Application* ND::Create_Application();
 
 int main(int argc, char** argv)
 {
+	ND::Log::Init();
+	auto app = ND::Create_Application();
+	using namespace ND;
+	ND_ERROR("Welcome to the NDEngine\nPlease Read the docs on how to use it");
 
-	nd::log::init();
-	ND_WARN("Helo = {0}", 5);
-
-	auto app = nd::create_application();
-	app->run();
+	app->Run();
 	delete app;
 }
 #endif

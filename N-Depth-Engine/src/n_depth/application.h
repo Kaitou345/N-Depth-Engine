@@ -1,16 +1,16 @@
 #pragma once
 #include "core.h"
-namespace nd
+namespace ND
 {
-	class ND_API application
+	class ND_API Application
 	{
 	public: 
-		application();
-		virtual ~application();
-		void run();
+		Application();
+		virtual ~Application();
+		void Run();
 	};
 
 	// To be defined in client
-	application* create_application();
+	Application* Create_Application();
 }
 

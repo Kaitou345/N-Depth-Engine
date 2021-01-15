@@ -4,16 +4,16 @@
 #include <spdlog/spdlog.h>
 #include <memory>
 
-namespace nd
+namespace ND
 {
-	class ND_API log
+	class ND_API Log
 	{
 	public:
 
-		static void init();
+		static void Init();
 
-		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_core_logger; }
-		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_client_logger; }
+		inline static std::shared_ptr<spdlog::logger>& Get_Core_Logger() { return s_core_logger; }
+		inline static std::shared_ptr<spdlog::logger>& Get_Client_Logger() { return s_client_logger; }
 
 
 	private:
@@ -26,14 +26,13 @@ namespace nd
 
 #ifdef ND_DEBUG_BUILD
 // Core log macros
-#define ND_CORE_ERROR(...)     nd::log::GetCoreLogger()->error(__VA_ARGS__)
-#define ND_CORE_WARN(...)      nd::log::GetCoreLogger()->warn(__VA_ARGS__)
-#define ND_CORE_INFO(...)      nd::log::GetCoreLogger()->info(__VA_ARGS__)
+#define ND_CORE_ERROR(...)     ND::Log::Get_Core_Logger()->error(__VA_ARGS__)
+#define ND_CORE_WARN(...)      ND::Log::Get_Core_Logger()->warn(__VA_ARGS__)
+#define ND_CORE_INFO(...)      ND::Log::Get_Core_Logger()->info(__VA_ARGS__)
 
-// Client log macros
-#define ND_ERROR(...)          nd::log::GetCoreLogger()->error(__VA_ARGS__)
-#define ND_WARN(...)           nd::log::GetCoreLogger()->warn(__VA_ARGS__)
-#define ND_INFO(...)           nd::log::GetCoreLogger()->info(__VA_ARGS__)
+#define ND_ERROR(...)          ND::Log::Get_Client_Logger()->error(__VA_ARGS__)
+#define ND_WARN(...)           ND::Log::Get_Client_Logger()->warn(__VA_ARGS__)
+#define ND_INFO(...)           ND::Log::Get_Client_Logger()->info(__VA_ARGS__)
 
 #else 
 // Core log macros

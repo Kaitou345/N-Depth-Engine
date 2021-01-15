@@ -1,6 +1,6 @@
 #include <nd.h>
 
-class Sandbox : public nd::application
+class Sandbox : public ND::Application
 {
 public:
 	Sandbox() 
@@ -11,7 +11,7 @@ public:
 	}
 };
 
-nd::application* nd::create_application()
+ND::Application* ND::Create_Application()
 {	
 	return new Sandbox();
 }

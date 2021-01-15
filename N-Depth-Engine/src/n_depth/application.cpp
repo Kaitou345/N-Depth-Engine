@@ -1,16 +1,23 @@
 #include "application.h"
+#include "n_depth/events/events.h"
+#include "n_depth/events/application_events.h"
+#include "n_depth/events/key_events.h"
+#include "n_depth/events/mouse_events.h"
 
-namespace nd
+namespace ND
 {
 
-	application::application()
+	Application::Application()
 	{
 	}
-	application::~application()
+	Application::~Application()
 	{
 	}
-	void application::run()
+
+	void Application::Run()
 	{
+		
+
 		while (true);
 	}
 }
