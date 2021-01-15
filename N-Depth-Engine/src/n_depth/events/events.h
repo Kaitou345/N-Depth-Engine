@@ -3,6 +3,7 @@
 #include "n_depth/core.h"
 #include <string>
 #include <ostream>
+#include <functional>
 #include "spdlog/fmt/ostr.h"
 
 namespace ND
@@ -46,12 +47,37 @@ namespace ND
 		}
 
 	protected:
-		bool m_Handled = false;
+		bool m_handled = false;
 	};
 
-	std::ostream& operator<<(std::ostream& stream, const Event& e)
+
+
+	class Event_Dispatcher
+	{
+		template<typename T> 
+		using Event_Func = std::function<bool(T)>;
+
+	public:
+		Event_Dispatcher(Event& event) : m_event(event) {}
+
+		template<typename T>
+		bool Dispatch(Event_Func<T> function)
+		{
+			if (m_event.Get_Event_Type() == T::Get_Static_Type())
+			{
+				m_event.m_Handled = function(*(T*)&m_event);
+			}
+		}
+		
+	private:
+		Event& m_event;
+
+	};
+
+	inline std::ostream& operator<<(std::ostream& stream, const Event& e)
 	{
 		stream << e.To_String();
 		return stream;
 	}
+	
 };
