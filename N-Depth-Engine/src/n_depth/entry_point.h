@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	ND::Log::Init();
 	auto app = ND::Create_Application();
 	using namespace ND;
-	ND_ERROR("Welcome to the NDEngine\nPlease Read the docs on how to use it");
+	ND_ERROR("Welcome to the NDEngine. Please Read the docs on how to use it");
 
 	app->Run();
 	delete app;
