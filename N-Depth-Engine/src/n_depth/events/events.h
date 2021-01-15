@@ -55,7 +55,7 @@ namespace ND
 	class Event_Dispatcher
 	{
 		template<typename T> 
-		using Event_Func = std::function<bool(T)>;
+		using Event_Func = std::function<bool(T&)>;
 
 	public:
 		Event_Dispatcher(Event& event) : m_event(event) {}
