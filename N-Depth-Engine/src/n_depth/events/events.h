@@ -66,7 +66,9 @@ namespace ND
 			if (m_event.Get_Event_Type() == T::Get_Static_Type())
 			{
 				m_event.m_Handled = function(*(T*)&m_event);
+				return true;
 			}
+			return false;
 		}
 		
 	private:
